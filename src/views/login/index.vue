@@ -36,8 +36,8 @@
         >登录</el-button
       >
       <div class="tips">
-        <span style="margin-right: 20px">用户名: 13800000002</span>
-        <span> 密码: 123456</span>
+        <span style="margin-right: 20px">用户名:13800000002</span>
+        <span> 密码:123456</span>
       </div>
     </el-form>
   </div>
@@ -52,8 +52,8 @@ export default {
     return {
       // 1. 定义数据
       loginForm: {
-        mobile: "",
-        password: "",
+        mobile: "13800000004",
+        password: "123456",
       },
       loginFormRules: {
         // 规则名和数据名保持一致
@@ -75,13 +75,13 @@ export default {
           // },
         ],
       },
-      isLogin:false
+      isLogin: false,
     };
   },
   methods: {
     async login() {
       try {
-        this.isLogin = true
+        this.isLogin = true;
         await this.$refs.loginForm.validate();
         await this.$store.dispatch("user/getToken", this.loginForm);
         this.$router.push("/");
@@ -90,7 +90,7 @@ export default {
         this.isLogin = false;
       }
     },
-    // isLogin() { 
+    // isLogin() {
     //   loading = false;
     // },
   },
