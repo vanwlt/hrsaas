@@ -6,7 +6,7 @@
       @toggleClick="toggleSideBar"
     />
     <div class="app-breadcrumb">
-      {{$store.state.user.userInfo.userId}}
+      江苏传智播客教育科技有限公司
       <span class="breadBtn">体验版</span>
     </div>
     <!-- <breadcrumb class="breadcrumb-container" /> -->
@@ -17,9 +17,10 @@
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
           <img
-            :src="avatar + '?imageView2/1/w/80/h/80'"
+            :src="$store.state.user.userInfo.staffPhoto + '132'"
             class="user-avatar"
-          /><span>{{$store.state.user.userInfo.username}}</span>
+            v-imgError="defaultImg"
+          /><span>{{ $store.state.user.userInfo.username }}</span>
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
@@ -41,6 +42,11 @@ import Breadcrumb from "@/components/Breadcrumb";
 import Hamburger from "@/components/Hamburger";
 
 export default {
+  data() {
+    return {
+      defaultImg: "http://destiny001.gitee.io/image/none.png",
+    };
+  },
   components: {
     Breadcrumb,
     Hamburger,
@@ -140,7 +146,7 @@ export default {
         display: flex;
         align-items: center;
         color: #fff;
-        span{
+        span {
           margin: 0 5px;
         }
         .user-avatar {
